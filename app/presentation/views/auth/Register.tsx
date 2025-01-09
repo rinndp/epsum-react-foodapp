@@ -8,3 +8,5 @@ export function RegisterScreen() {
         </View>
     );
 }
+
+export default RegisterScreen;
