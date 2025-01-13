@@ -2,7 +2,7 @@ import React from "react";
 import {Image, Text, TextInput, ToastAndroid, TouchableOpacity, View} from "react-native";
 import styles from "./StylesLogin";
 import {useNavigation} from "@react-navigation/native";
-import Register, {RegisterScreen} from "./Register";
+import {RegisterScreen} from "./Register";
 
 export function LoginScreen() {
     const router = useNavigation();
