@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
         borderRadius: 30,
     },
 
+
     formTitle: {
         fontSize: 16,
         color: '#3f3f3f',
@@ -47,7 +48,24 @@ const styles = StyleSheet.create({
         marginBottom: "5%",
     },
 
+    formInputContainerInline: {
+        marginBottom: "5%",
+        flexDirection: 'row',
+    },
+
     formInput: {
+        height: 48,
+        borderColor: '#c5c5c5',
+        borderWidth: 1,
+        borderRadius: 13,
+        paddingVertical: 7,
+        paddingHorizontal: 10,
+    },
+
+
+    formInputInline: {
+        width: '48%',
+        marginEnd: 6,
         height: 48,
         borderColor: '#c5c5c5',
         borderWidth: 1,

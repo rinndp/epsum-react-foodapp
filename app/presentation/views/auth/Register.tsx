@@ -1,8 +1,11 @@
 import React from "react";
-import {View, Text, TextInput, Image} from "react-native";
+import {View, Text, TextInput, Image, TouchableOpacity, ToastAndroid} from "react-native";
 import styles from "./StylesLogin";
+import {useNavigation} from "@react-navigation/native";
 
 export function RegisterScreen() {
+    const router = useNavigation();
+
     return (
         <View style={styles.container}>
             <View>
@@ -12,6 +15,19 @@ export function RegisterScreen() {
 
             <View style={styles.formContainer}>
                 <Text style={styles.formTitle}>Registro</Text>
+
+                <View style={styles.formInputContainerInline}>
+                    <TextInput
+                        style={styles.formInputInline}
+                        placeholder={"Nombre"}
+                        keyboardType={'default'}
+                    ></TextInput>
+                    <TextInput
+                        style={styles.formInputInline}
+                        placeholder={"Teléfono"}
+                        keyboardType={'numeric'}
+                    ></TextInput>
+                </View>
 
                 <View style={styles.formInputContainer}>
                     <TextInput
@@ -37,6 +53,12 @@ export function RegisterScreen() {
                         keyboardType={'default'}
                         secureTextEntry={true}
                     ></TextInput>
+                </View>
+
+                <View>
+                    <TouchableOpacity style={styles.loginButton} onPress={() => {ToastAndroid.show("Se ha registrado correctamente", ToastAndroid.SHORT), router.navigate("LoginScreen")}}>
+                        <Text style={styles.loginButtonText}>Registrarse</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
