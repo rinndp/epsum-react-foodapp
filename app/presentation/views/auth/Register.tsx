@@ -1,7 +1,10 @@
 import React from "react";
 import {View, Text, TextInput, Image, TouchableOpacity, ToastAndroid} from "react-native";
-import styles from "./StylesLogin";
+import styles from "./StylesForms";
 import {useNavigation} from "@react-navigation/native";
+import {RoundedButton} from "../../components/RoundedButton";
+import {CustomTextInputInline} from "../../components/CustomTextInputInline";
+import {CustomTextInput} from "../../components/CustomTextInput";
 
 export function RegisterScreen() {
     const router = useNavigation();
@@ -17,48 +20,36 @@ export function RegisterScreen() {
                 <Text style={styles.formTitle}>Registro</Text>
 
                 <View style={styles.formInputContainerInline}>
-                    <TextInput
-                        style={styles.formInputInline}
-                        placeholder={"Nombre"}
-                        keyboardType={'default'}
-                    ></TextInput>
-                    <TextInput
-                        style={styles.formInputInline}
-                        placeholder={"Teléfono"}
-                        keyboardType={'numeric'}
-                    ></TextInput>
+                    <CustomTextInputInline placeholder={"Nombre"}></CustomTextInputInline>
+                    <CustomTextInputInline placeholder={"Apellido"}></CustomTextInputInline>
                 </View>
 
                 <View style={styles.formInputContainer}>
-                    <TextInput
-                        style={styles.formInput}
-                        placeholder={"Correo"}
-                        keyboardType={'email-address'}
-                    ></TextInput>
+                    <CustomTextInput placeholder={"Correo"}
+                                     keyboardType={"email-address"}
+                                     secureTextEntry={false}></CustomTextInput>
                 </View>
 
                 <View style={styles.formInputContainer}>
-                    <TextInput
-                        style={styles.formInput}
-                        placeholder={"Contraseña"}
-                        keyboardType={'default'}
-                        secureTextEntry={true}
-                    ></TextInput>
+                    <CustomTextInput placeholder={"Teléfono"}
+                                     keyboardType={"default"}
+                                     secureTextEntry={false}></CustomTextInput>
                 </View>
 
                 <View style={styles.formInputContainer}>
-                    <TextInput
-                        style={styles.formInput}
-                        placeholder={"Confirmar contraseña"}
-                        keyboardType={'default'}
-                        secureTextEntry={true}
-                    ></TextInput>
+                    <CustomTextInput placeholder={"Contraseña"}
+                                     keyboardType={"default"}
+                                     secureTextEntry={true}></CustomTextInput>
+                </View>
+
+                <View style={styles.formInputContainer}>
+                    <CustomTextInput placeholder={"Confirmar contraseña"}
+                                     keyboardType={"default"}
+                                     secureTextEntry={true}></CustomTextInput>
                 </View>
 
                 <View>
-                    <TouchableOpacity style={styles.loginButton} onPress={() => {ToastAndroid.show("Se ha registrado correctamente", ToastAndroid.SHORT), router.navigate("LoginScreen")}}>
-                        <Text style={styles.loginButtonText}>Registrarse</Text>
-                    </TouchableOpacity>
+                    <RoundedButton text={"Registrarme"} onPressFromInterface={() => ToastAndroid.show("Iniciando sesión", ToastAndroid.SHORT)}></RoundedButton>
                 </View>
             </View>
         </View>

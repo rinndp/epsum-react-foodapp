@@ -1,10 +1,11 @@
 import {StyleSheet} from "react-native";
+import {AppColors} from "../../theme/AppTheme";
 
 const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: '100%',
-        backgroundColor: '#181818',
+        backgroundColor: '#00011c',
     },
 
     title: {
@@ -32,13 +33,12 @@ const styles = StyleSheet.create({
         borderRadius: 30,
     },
 
-
     formTitle: {
         fontSize: 16,
-        color: '#3f3f3f',
         fontWeight: 'bold',
         borderBottomWidth: 0.5,
-        borderBottomColor: '#5e5e5e',
+        color: '#707070',
+        borderBottomColor: AppColors.secondary,
         paddingBottom: 9,
         textTransform: 'uppercase',
         marginBottom: '8%',
@@ -51,46 +51,16 @@ const styles = StyleSheet.create({
     formInputContainerInline: {
         marginBottom: "5%",
         flexDirection: 'row',
+        gap: 11,
     },
 
-    formInput: {
-        height: 48,
-        borderColor: '#c5c5c5',
-        borderWidth: 1,
-        borderRadius: 13,
-        paddingVertical: 7,
-        paddingHorizontal: 10,
-    },
-
-
-    formInputInline: {
-        width: '48%',
-        marginEnd: 6,
-        height: 48,
-        borderColor: '#c5c5c5',
-        borderWidth: 1,
-        borderRadius: 13,
-        paddingVertical: 7,
-        paddingHorizontal: 10,
-    },
-
-    loginButton: {
-        borderRadius: 20,
-        alignSelf: 'center',
-        width: '40%',
-        backgroundColor: 'black',
+    formTextHints: {
         marginTop: 20,
-        marginBottom: 10,
-        color: 'white',
-        padding: 13,
-    },
-
-    loginButtonText: {
-        color: 'white',
-        fontSize: 16,
-        fontWeight: 'bold',
-        textAlign: 'center',
+        marginBottom: -10,
+        color: '#575757',
+        alignSelf: 'center',
     }
+
 });
 
 export default styles;

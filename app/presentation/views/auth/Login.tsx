@@ -1,8 +1,10 @@
 import React from "react";
 import {Image, Text, TextInput, ToastAndroid, TouchableOpacity, View} from "react-native";
-import styles from "./StylesLogin";
+import styles from "./StylesForms";
 import {useNavigation} from "@react-navigation/native";
 import {RegisterScreen} from "./Register";
+import {RoundedButton} from "../../components/RoundedButton";
+import {CustomTextInput} from "../../components/CustomTextInput";
 
 export function LoginScreen() {
     const router = useNavigation();
@@ -11,38 +13,37 @@ export function LoginScreen() {
         <View style={styles.container}>
             <View>
                 <Image source={require("../../../../assets/logo.png")} style={styles.logo}></Image>
-                <Text style={styles.title}>First App</Text>
+                <Text style={styles.title}>Food App</Text>
             </View>
             <View style={styles.formContainer}>
                 <Text style={styles.formTitle}>Iniciar sesión</Text>
 
                 <View style={styles.formInputContainer}>
-                    <TextInput
-                        style={styles.formInput}
-                        placeholder={"Correo"}
-                        keyboardType={'email-address'}
-                    ></TextInput>
+                    <CustomTextInput placeholder={"Correo"}
+                                     keyboardType={'email-address'}
+                                     secureTextEntry={false}></CustomTextInput>
                 </View>
 
                 <View style={styles.formInputContainer}>
-                    <TextInput
-                        style={styles.formInput}
-                        placeholder={"Contraseña"}
-                        keyboardType={'default'}
-                        secureTextEntry={true}
-                    ></TextInput>
+                    <CustomTextInput placeholder={"Contraseña"}
+                                     keyboardType={'default'}
+                                     secureTextEntry={true}></CustomTextInput>
+
                 </View>
 
                 <View>
-                    <TouchableOpacity style={styles.loginButton} onPress={() => {ToastAndroid.show("Se ha presionado el Toast", ToastAndroid.SHORT)}}>
-                        <Text style={styles.loginButtonText}>Entrar</Text>
-                    </TouchableOpacity>
+                   <RoundedButton text={"Iniciar sesión"}
+                                  onPressFromInterface={() => ToastAndroid.show("Iniciando sesión", ToastAndroid.SHORT)}></RoundedButton>
                 </View>
 
                 <View>
-                    <TouchableOpacity style={styles.loginButton} onPress={() => {router.navigate("RegisterScreen")}}>
-                        <Text style={styles.loginButtonText}>Registrarme</Text>
-                    </TouchableOpacity>
+                    <Text style={styles.formTextHints}>¿No tienes cuenta?</Text>
+                </View>
+
+                <View>
+                    <RoundedButton text={"Registrarse"}
+                                   onPressFromInterface={() => router.navigate("RegisterScreen")}
+                    ></RoundedButton>
                 </View>
             </View>
         </View>
