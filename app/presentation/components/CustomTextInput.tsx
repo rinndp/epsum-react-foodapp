@@ -5,15 +5,17 @@ interface Props {
     placeholder: string;
     keyboardType: KeyboardType;
     secureTextEntry: boolean;
+    onPressFromInterface: (text: string) => void;
 }
 
-export const CustomTextInput = ({placeholder, keyboardType, secureTextEntry}: Props) => {
+export const CustomTextInput = ({placeholder, keyboardType, secureTextEntry, onPressFromInterface}: Props) => {
     return(
         <TextInput
             style={styles.formInput}
             placeholder={placeholder}
             keyboardType={keyboardType}
             secureTextEntry={secureTextEntry}
+            onChangeText={(text) => onPressFromInterface(text)}
         ></TextInput>
     )
 }

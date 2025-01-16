@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Image, Text, TextInput, ToastAndroid, TouchableOpacity, View} from "react-native";
 import styles from "./StylesForms";
 import {useNavigation} from "@react-navigation/native";
@@ -8,6 +8,9 @@ import {CustomTextInput} from "../../components/CustomTextInput";
 
 export function LoginScreen() {
     const router = useNavigation();
+
+    const [email, setEmail] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
 
     return (
         <View style={styles.container}>
@@ -21,19 +24,21 @@ export function LoginScreen() {
                 <View style={styles.formInputContainer}>
                     <CustomTextInput placeholder={"Correo"}
                                      keyboardType={'email-address'}
+                                     onPressFromInterface={(text) => setEmail(text)}
                                      secureTextEntry={false}></CustomTextInput>
                 </View>
 
                 <View style={styles.formInputContainer}>
                     <CustomTextInput placeholder={"Contraseña"}
                                      keyboardType={'default'}
+                                     onPressFromInterface={(text) => setPassword(text)}
                                      secureTextEntry={true}></CustomTextInput>
 
                 </View>
 
                 <View>
                    <RoundedButton text={"Iniciar sesión"}
-                                  onPressFromInterface={() => ToastAndroid.show("Iniciando sesión", ToastAndroid.SHORT)}></RoundedButton>
+                                  onPressFromInterface={() => ToastAndroid.show("Iniciando sesión -- Correo: "+email, ToastAndroid.SHORT)}></RoundedButton>
                 </View>
 
                 <View>

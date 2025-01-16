@@ -3,14 +3,16 @@ import {KeyboardType, StyleSheet, TextInput} from "react-native";
 
 interface Props {
     placeholder: string;
+    onPressFromInterface: (text: string) => void;
 }
 
-export const CustomTextInputInline = ({placeholder}: Props) => {
+export const CustomTextInputInline = ({placeholder, onPressFromInterface}: Props) => {
     return (
         <TextInput
             style={styles.formInputInline}
             placeholder={placeholder}
             keyboardType={'default'}
+            onChangeText={(text) => onPressFromInterface(text)}
         ></TextInput>
     )
 }
